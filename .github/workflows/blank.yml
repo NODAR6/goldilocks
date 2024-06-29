@@ -40,6 +40,6 @@ jobs:
         gcloud components update
         gcloud container clusters get-credentials reference-baton-426923-t0-gke --region us-east5 --project reference-baton-426923-t0
         helm repo add fairwinds-stable https://charts.fairwinds.com/stable
-        helm template goldilacks goldilacks/goldilacks > ./goldilacks.yaml -n sonarqube
+        helm template goldilacks goldilocks/goldilocks > ./goldilocks.yaml -n goldilocks
         ls
-        kubectl apply -f goldilacks.yaml -n sonarqube
+        kubectl apply -f goldilocks.yaml -n sonarqube
