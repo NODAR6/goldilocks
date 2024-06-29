@@ -42,4 +42,4 @@ jobs:
         helm repo add fairwinds-stable https://charts.fairwinds.com/stable
         helm install my-goldilocks fairwinds-stable/goldilocks --version 8.0.2
         ls
-        kubectl apply -f values.yaml -n goldilocks
+        kubectl install goldilocks fairdinds-stable/goldilocks -f values.yaml dev-values.yaml -n goldilocks
