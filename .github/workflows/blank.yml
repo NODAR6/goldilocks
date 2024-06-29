@@ -21,7 +21,11 @@ jobs:
           project_id: reference-baton-426923-t0
 
       - name: Authenticate to GKE
-        run: gcloud container clusters get-credentials reference-baton-426923-t0-gke --region us-east5
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GCP_SA_KEY }}
+        run: |
+          gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}
+          gcloud container clusters get-credentials reference-baton-426923-t0-gke --region us-east5 --project reference-baton-426923-t0
 
       - name: Install Helm
         run: curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
